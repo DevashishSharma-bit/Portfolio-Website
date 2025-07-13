@@ -1,259 +1,58 @@
-import { Download, MapPin, Calendar, Award } from 'lucide-react';
+import { Download, MapPin, Calendar, Award, Code, Brain, Zap, Heart, Star, TrendingUp, Users, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function About() {
   const stats = [
-    { icon: <Calendar style={{ width: '20px', height: '20px' }} />, label: 'Experience', value: '3+ Years' },
-    { icon: <MapPin style={{ width: '20px', height: '20px' }} />, label: 'Location', value: 'India' },
-    { icon: <Award style={{ width: '20px', height: '20px' }} />, label: 'Projects', value: '50+' },
+    { icon: <Calendar style={{ width: '20px', height: '20px' }} />, label: 'Experience', value: '3+ Years', color: '#3B82F6' },
+    { icon: <MapPin style={{ width: '20px', height: '20px' }} />, label: 'Location', value: 'India', color: '#10B981' },
+    { icon: <Award style={{ width: '20px', height: '20px' }} />, label: 'Projects', value: '50+', color: '#F59E0B' },
+    { icon: <Users style={{ width: '20px', height: '20px' }} />, label: 'Clients', value: '25+', color: '#8B5CF6' },
   ];
 
-  const interests = [
-    'AI & Machine Learning',
-    'Fintech Solutions', 
-    'Open Source',
-    'Music Production',
-    'Chess Strategy',
-    'Travel & Culture'
+  const skills = [
+    { name: 'AI & Machine Learning', icon: <Brain size={16} />, level: 90, color: '#3B82F6' },
+    { name: 'MERN Stack', icon: <Code size={16} />, level: 95, color: '#10B981' },
+    { name: 'Fintech Solutions', icon: <TrendingUp size={16} />, level: 85, color: '#F59E0B' },
+    { name: 'Open Source', icon: <Heart size={16} />, level: 80, color: '#EF4444' },
+    { name: 'Music Production', icon: <Zap size={16} />, level: 75, color: '#8B5CF6' },
+    { name: 'Chess Strategy', icon: <Star size={16} />, level: 70, color: '#06B6D4' },
+  ];
+
+  const timeline = [
+    {
+      year: '2023',
+      title: 'AI Agent Development',
+      description: 'Leading innovative AI agent projects with cutting-edge technologies',
+      icon: <Brain size={20} />
+    },
+    {
+      year: '2022',
+      title: 'MERN Stack Mastery',
+      description: 'Built scalable web applications and fintech solutions',
+      icon: <Code size={20} />
+    },
+    {
+      year: '2021',
+      title: 'Career Beginnings',
+      description: 'Started journey in software development and open source',
+      icon: <Rocket size={20} />
+    }
   ];
 
   return (
     <motion.section
       id="about"
-      className="container-max section-padding"
-      data-aos="fade-up"
-      style={{ position: 'relative' }}
+      style={{ 
+        position: 'relative',
+        padding: '6rem 2rem',
+        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%)',
+        overflow: 'hidden'
+      }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7 }}
     >
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '3rem',
-        alignItems: 'center'
-      }}>
-        {/* Profile Image and Stats */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '2rem'
-        }}>
-          {/* Profile Image */}
-          <div style={{ position: 'relative' }}>
-            <div style={{
-              width: '16rem',
-              height: '16rem',
-              borderRadius: '1rem',
-              background: 'linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
-              border: '1px solid #404040',
-              transition: 'all 0.5s',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.1)';
-              e.target.style.borderColor = '#525252';
-              e.target.querySelector('span').style.transform = 'scale(1.1)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2)';
-              e.target.style.borderColor = '#404040';
-              e.target.querySelector('span').style.transform = 'scale(1)';
-            }}
-            >
-              <span style={{
-                fontSize: '6rem',
-                transition: 'transform 0.3s'
-              }}>👨‍💻</span>
-            </div>
-            {/* Decorative elements */}
-            <div style={{
-              position: 'absolute',
-              top: '-1rem',
-              right: '-1rem',
-              width: '2rem',
-              height: '2rem',
-              backgroundColor: 'rgba(255, 255, 255, 0.2)',
-              borderRadius: '50%',
-              animation: 'pulse 2s ease-in-out infinite'
-            }} />
-            <div style={{
-              position: 'absolute',
-              bottom: '-1rem',
-              left: '-1rem',
-              width: '1.5rem',
-              height: '1.5rem',
-              backgroundColor: 'rgba(229, 229, 229, 0.2)',
-              borderRadius: '50%',
-              animation: 'pulse 2s ease-in-out infinite',
-              animationDelay: '1s'
-            }} />
-          </div>
-          
-          {/* Stats Grid */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1rem',
-            width: '100%',
-            maxWidth: '24rem'
-          }}>
-            {stats.map((stat, index) => (
-              <div 
-                key={stat.label}
-                className="card"
-                style={{
-                  textAlign: 'center',
-                  transition: 'all 0.3s',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = '#333333';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = '#1e1e1e';
-                }}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  marginBottom: '0.5rem',
-                  color: '#ffffff',
-                  transition: 'color 0.3s'
-                }}
-                onMouseEnter={(e) => e.target.style.color = '#e5e5e5'}
-                onMouseLeave={(e) => e.target.style.color = '#ffffff'}
-                >
-                  {stat.icon}
-                </div>
-                <div style={{
-                  fontSize: '0.875rem',
-                  color: '#737373',
-                  fontWeight: '500'
-                }}>{stat.label}</div>
-                <div style={{
-                  fontWeight: 'bold',
-                  color: '#ffffff',
-                  fontSize: '1.125rem'
-                }}>{stat.value}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Bio and Details */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          <div>
-            <h2 style={{
-              fontSize: 'clamp(2.25rem, 4vw, 3rem)',
-              fontWeight: 'bold',
-              marginBottom: '1rem',
-              color: '#ffffff',
-              fontFamily: '"Poppins", sans-serif'
-            }}>
-              About Me
-            </h2>
-            <div style={{
-              width: '5rem',
-              height: '4px',
-              background: 'linear-gradient(to right, #ffffff, #e5e5e5)',
-              borderRadius: '9999px',
-              marginBottom: '1.5rem'
-            }} />
-          </div>
-          
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            fontSize: '1.125rem',
-            color: '#b3b3b3',
-            fontFamily: '"Inter", sans-serif',
-            lineHeight: '1.75'
-          }}>
-            <p>
-              Hi! I'm <span style={{ color: '#ffffff', fontWeight: '600' }}>Devashish</span>, a passionate 
-              <span style={{ color: '#ffffff', fontWeight: '600' }}> AI Agent Developer</span> and 
-              <span style={{ color: '#ffffff', fontWeight: '600' }}> MERN Stack engineer</span> with a keen 
-              interest in fintech and emerging technologies.
-            </p>
-            <p>
-              I love building intelligent, scalable, and impactful digital products that solve real-world problems. 
-              My expertise spans across modern web technologies, artificial intelligence, and financial technology solutions.
-            </p>
-            <p>
-              When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
-              or enjoying music and chess.
-            </p>
-          </div>
-
-          {/* Interests/Skills Tags */}
-          <div>
-            <h3 style={{
-              fontSize: '1.25rem',
-              fontWeight: '600',
-              marginBottom: '1rem',
-              color: '#ffffff',
-              fontFamily: '"Poppins", sans-serif'
-            }}>
-              Interests & Expertise
-            </h3>
-            <div style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '0.75rem'
-            }}>
-              {interests.map((interest, index) => (
-                <span 
-                  key={interest} 
-                  style={{
-                    padding: '0.5rem 1rem',
-                    borderRadius: '9999px',
-                    backgroundColor: '#2a2a2a',
-                    border: '1px solid #404040',
-                    color: '#e5e5e5',
-                    fontSize: '0.875rem',
-                    fontWeight: '500',
-                    transition: 'all 0.3s',
-                    cursor: 'default'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = '#333333';
-                    e.target.style.borderColor = '#525252';
-                    e.target.style.color = '#ffffff';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = '#2a2a2a';
-                    e.target.style.borderColor = '#404040';
-                    e.target.style.color = '#e5e5e5';
-                  }}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 50}
-                >
-                  {interest}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          {/* Call to Action */}
-          <div style={{ paddingTop: '1rem' }}>
-            <button className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Download size={18} style={{ animation: 'bounce 1s infinite' }} /> 
-              Download Resume
-            </button>
-          </div>
-        </div>
-      </div>
-
       {/* Background decoration */}
       <div style={{
         position: 'absolute',
@@ -265,26 +64,570 @@ export default function About() {
         overflow: 'hidden',
         pointerEvents: 'none'
       }}>
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '10%',
+            right: '10%',
+            width: '20rem',
+            height: '20rem',
+            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)',
+            borderRadius: '50%',
+            filter: 'blur(80px)'
+          }}
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          style={{
+            position: 'absolute',
+            bottom: '20%',
+            left: '15%',
+            width: '16rem',
+            height: '16rem',
+            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)',
+            borderRadius: '50%',
+            filter: 'blur(60px)'
+          }}
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      <div style={{ 
+        maxWidth: '1400px', 
+        margin: '0 auto',
+        position: 'relative',
+        zIndex: 1
+      }}>
+        {/* Header Section */}
+        <motion.div 
+          style={{ textAlign: 'center', marginBottom: '5rem' }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1rem',
+              marginBottom: '1.5rem'
+            }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div style={{
+              width: '3px',
+              height: '2rem',
+              background: 'linear-gradient(180deg, #ffffff 0%, transparent 100%)',
+              borderRadius: '2px'
+            }} />
+            <span style={{
+              color: '#e5e5e5',
+              fontWeight: '600',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              fontSize: '0.875rem',
+              opacity: 0.8
+            }}>
+              My Story
+            </span>
+            <div style={{
+              width: '3px',
+              height: '2rem',
+              background: 'linear-gradient(180deg, #ffffff 0%, transparent 100%)',
+              borderRadius: '2px'
+            }} />
+          </motion.div>
+
+          <motion.h2 
+            style={{
+              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontWeight: '800',
+              marginBottom: '1.5rem',
+              color: '#ffffff',
+              fontFamily: '"Poppins", sans-serif',
+              lineHeight: '1.2'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            About Me
+          </motion.h2>
+
+          <motion.p 
+            style={{
+              fontSize: 'clamp(1.125rem, 2vw, 1.25rem)',
+              color: '#b3b3b3',
+              maxWidth: '700px',
+              margin: '0 auto',
+              fontFamily: '"Inter", sans-serif',
+              lineHeight: '1.6'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Passionate AI Agent Developer and MERN Stack engineer crafting innovative digital solutions
+          </motion.p>
+        </motion.div>
+
+        {/* Main Content Grid */}
         <div style={{
-          position: 'absolute',
-          top: '25%',
-          right: 0,
-          width: '16rem',
-          height: '16rem',
-          backgroundColor: 'rgba(255, 255, 255, 0.05)',
-          borderRadius: '50%',
-          filter: 'blur(60px)'
-        }} />
-        <div style={{
-          position: 'absolute',
-          bottom: '25%',
-          left: 0,
-          width: '12rem',
-          height: '12rem',
-          backgroundColor: 'rgba(229, 229, 229, 0.05)',
-          borderRadius: '50%',
-          filter: 'blur(60px)'
-        }} />
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+          gap: '4rem',
+          alignItems: 'start',
+          marginBottom: '4rem'
+        }}>
+          {/* Left Column - Profile & Stats */}
+          <motion.div 
+            style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {/* Profile Image */}
+            <div style={{ textAlign: 'center' }}>
+              <motion.div 
+                style={{ position: 'relative', display: 'inline-block' }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div style={{
+                  width: '18rem',
+                  height: '18rem',
+                  borderRadius: '20px',
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                  border: '2px solid rgba(255, 255, 255, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                  backdropFilter: 'blur(10px)',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}>
+                  <span style={{
+                    fontSize: '8rem',
+                    filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))'
+                  }}>👨‍💻</span>
+                  
+                  {/* Floating elements */}
+                  <motion.div
+                    style={{
+                      position: 'absolute',
+                      top: '1rem',
+                      right: '1rem',
+                      width: '1rem',
+                      height: '1rem',
+                      background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)',
+                      borderRadius: '50%',
+                      boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)'
+                    }}
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                      opacity: [0.7, 1, 0.7]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <motion.div
+                    style={{
+                      position: 'absolute',
+                      bottom: '1rem',
+                      left: '1rem',
+                      width: '0.75rem',
+                      height: '0.75rem',
+                      background: 'linear-gradient(135deg, #10B981, #059669)',
+                      borderRadius: '50%',
+                      boxShadow: '0 0 15px rgba(16, 185, 129, 0.5)'
+                    }}
+                    animate={{ 
+                      scale: [1.2, 1, 1.2],
+                      opacity: [0.7, 1, 0.7]
+                    }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Stats Grid */}
+            <div>
+              <motion.h3 
+                style={{
+                  fontSize: '1.5rem',
+                  fontWeight: '700',
+                  marginBottom: '2rem',
+                  color: '#ffffff',
+                  fontFamily: '"Poppins", sans-serif',
+                  textAlign: 'center'
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                Key Metrics
+              </motion.h3>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: '1.5rem'
+              }}>
+                {stats.map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    style={{
+                      padding: '1.5rem',
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '16px',
+                      textAlign: 'center',
+                      transition: 'all 0.3s ease',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                    whileHover={{ 
+                      scale: 1.05, 
+                      y: -4,
+                      background: 'rgba(255, 255, 255, 0.08)',
+                      borderColor: 'rgba(255, 255, 255, 0.2)'
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                  >
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      marginBottom: '1rem',
+                      color: stat.color,
+                      fontSize: '1.5rem'
+                    }}>
+                      {stat.icon}
+                    </div>
+                    <div style={{
+                      fontSize: '2rem',
+                      fontWeight: '800',
+                      color: '#ffffff',
+                      marginBottom: '0.5rem',
+                      fontFamily: '"Poppins", sans-serif'
+                    }}>
+                      {stat.value}
+                    </div>
+                    <div style={{
+                      fontSize: '0.875rem',
+                      color: '#a3a3a3',
+                      fontWeight: '600',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em'
+                    }}>
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Bio & Skills */}
+          <motion.div 
+            style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            {/* Bio Section */}
+            <div>
+              <motion.h3 
+                style={{
+                  fontSize: '2rem',
+                  fontWeight: '700',
+                  marginBottom: '2rem',
+                  color: '#ffffff',
+                  fontFamily: '"Poppins", sans-serif'
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                The Journey
+              </motion.h3>
+              
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.5rem',
+                fontSize: '1.125rem',
+                color: '#b3b3b3',
+                fontFamily: '"Inter", sans-serif',
+                lineHeight: '1.7'
+              }}>
+                <p>
+                  Hi! I'm <span style={{ color: '#ffffff', fontWeight: '700' }}>Devashish</span>, a passionate 
+                  <span style={{ color: '#3B82F6', fontWeight: '600' }}> AI Agent Developer</span> and 
+                  <span style={{ color: '#10B981', fontWeight: '600' }}> MERN Stack engineer</span> with a keen 
+                  interest in fintech and emerging technologies.
+                </p>
+                <p>
+                  I love building intelligent, scalable, and impactful digital products that solve real-world problems. 
+                  My expertise spans across modern web technologies, artificial intelligence, and financial technology solutions.
+                </p>
+                <p>
+                  When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
+                  or enjoying music and chess. I believe in continuous learning and pushing the boundaries of what's possible.
+                </p>
+              </div>
+            </div>
+
+            {/* Skills Section */}
+            <div>
+              <motion.h3 
+                style={{
+                  fontSize: '1.75rem',
+                  fontWeight: '700',
+                  marginBottom: '2rem',
+                  color: '#ffffff',
+                  fontFamily: '"Poppins", sans-serif'
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                Skills & Expertise
+              </motion.h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                {skills.map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    style={{ width: '100%' }}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                  >
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      marginBottom: '0.75rem'
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.75rem'
+                      }}>
+                        <div style={{
+                          color: skill.color,
+                          display: 'flex',
+                          alignItems: 'center'
+                        }}>
+                          {skill.icon}
+                        </div>
+                        <span style={{
+                          color: '#ffffff',
+                          fontWeight: '600',
+                          fontSize: '1rem',
+                          fontFamily: '"Inter", sans-serif'
+                        }}>
+                          {skill.name}
+                        </span>
+                      </div>
+                      <span style={{
+                        color: '#a3a3a3',
+                        fontSize: '0.875rem',
+                        fontWeight: '600'
+                      }}>
+                        {skill.level}%
+                      </span>
+                    </div>
+                    <div style={{
+                      width: '100%',
+                      height: '8px',
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      borderRadius: '4px',
+                      overflow: 'hidden'
+                    }}>
+                      <motion.div
+                        style={{
+                          height: '100%',
+                          background: `linear-gradient(90deg, ${skill.color} 0%, ${skill.color}80 100%)`,
+                          borderRadius: '4px'
+                        }}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: index * 0.1 }}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Timeline Section */}
+        <motion.div
+          style={{ marginTop: '4rem' }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h3 
+            style={{
+              fontSize: '2rem',
+              fontWeight: '700',
+              marginBottom: '3rem',
+              color: '#ffffff',
+              fontFamily: '"Poppins", sans-serif',
+              textAlign: 'center'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Career Journey
+          </motion.h3>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '2rem'
+          }}>
+            {timeline.map((item, index) => (
+              <motion.div
+                key={item.year}
+                style={{
+                  padding: '2rem',
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '16px',
+                  backdropFilter: 'blur(10px)',
+                  position: 'relative'
+                }}
+                whileHover={{ 
+                  scale: 1.02, 
+                  y: -4,
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  borderColor: 'rgba(255, 255, 255, 0.2)'
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem',
+                  marginBottom: '1rem'
+                }}>
+                  <div style={{
+                    padding: '0.75rem',
+                    borderRadius: '12px',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                    color: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                  }}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div style={{
+                      fontSize: '1.25rem',
+                      fontWeight: '700',
+                      color: '#ffffff',
+                      fontFamily: '"Poppins", sans-serif'
+                    }}>
+                      {item.title}
+                    </div>
+                    <div style={{
+                      fontSize: '0.875rem',
+                      color: '#a3a3a3',
+                      fontWeight: '600'
+                    }}>
+                      {item.year}
+                    </div>
+                  </div>
+                </div>
+                <p style={{
+                  color: '#b3b3b3',
+                  fontFamily: '"Inter", sans-serif',
+                  lineHeight: '1.6',
+                  margin: 0
+                }}>
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.div 
+          style={{ 
+            textAlign: 'center', 
+            marginTop: '4rem',
+            padding: '2rem',
+            background: 'rgba(255, 255, 255, 0.03)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '20px',
+            backdropFilter: 'blur(10px)'
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.button 
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
+              color: '#000000',
+              border: 'none',
+              borderRadius: '12px',
+              padding: '1rem 2rem',
+              fontSize: '1rem',
+              fontWeight: '600',
+              fontFamily: '"Inter", sans-serif',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 4px 20px rgba(255, 255, 255, 0.2)'
+            }}
+            whileHover={{ 
+              scale: 1.05, 
+              y: -2,
+              boxShadow: '0 6px 25px rgba(255, 255, 255, 0.3)'
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Download size={20} />
+            Download Resume
+          </motion.button>
+        </motion.div>
       </div>
     </motion.section>
   );
