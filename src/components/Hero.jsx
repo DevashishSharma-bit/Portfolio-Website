@@ -1,7 +1,24 @@
 import { motion } from 'framer-motion';
-import { ChevronDown, Code, Sparkles } from 'lucide-react';
+import { ChevronDown, Code, Sparkles, ArrowRight, Download } from 'lucide-react';
+import { useEffect } from 'react';
 
 export default function Hero() {
+  useEffect(() => {
+    // Load Spline viewer script
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://unpkg.com/@splinetool/viewer@1.10.27/build/spline-viewer.js';
+    document.head.appendChild(script);
+    
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src*="spline-viewer.js"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+
   return (
     <section id="hero" style={{
       position: 'relative',
@@ -9,10 +26,23 @@ export default function Hero() {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       overflow: 'hidden',
-      background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%)'
+      background: 'transparent',
+      paddingTop: '6rem'
     }}>
+      {/* Spline 3D Model */}
+      <div style={{ 
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: -5
+      }}>
+        <spline-viewer url="https://prod.spline.design/s8AtnL84gfe9HKuz/scene.splinecode"></spline-viewer>
+      </div>
+      
       {/* Animated geometric background with greyscale theme */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: -10 }}>
         {/* Large floating orbs */}
@@ -85,72 +115,111 @@ export default function Hero() {
       </div>
       
       {/* Main content */}
-      <div style={{ textAlign: 'center', zIndex: 10, maxWidth: '64rem', margin: '0 auto', padding: '0 1.5rem' }}>
+      <div style={{ 
+        zIndex: 10, 
+        maxWidth: '1400px', 
+        margin: '0 auto', 
+        padding: '0 4rem',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        gap: '2rem'
+      }}>
         {/* Greeting with icon */}
         <motion.div
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             gap: '0.75rem',
-            marginBottom: '1.5rem'
+            marginBottom: '1rem'
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Sparkles style={{ color: '#ffffff', width: '24px', height: '24px' }} />
+          <div style={{
+            width: '2px',
+            height: '2rem',
+            background: 'linear-gradient(180deg, #ffffff 0%, transparent 100%)',
+            borderRadius: '1px'
+          }} />
           <span style={{
             color: '#e5e5e5',
-            fontWeight: '500',
-            letterSpacing: '0.1em',
+            fontWeight: '600',
+            letterSpacing: '0.15em',
             textTransform: 'uppercase',
-            fontSize: '0.875rem'
+            fontSize: '0.875rem',
+            opacity: 0.8
           }}>
             Welcome to my portfolio
           </span>
-          <Sparkles style={{ color: '#ffffff', width: '24px', height: '24px' }} />
+          <Sparkles style={{ color: '#ffffff', width: '20px', height: '20px', opacity: 0.7 }} />
         </motion.div>
 
         {/* Main heading */}
-        <motion.h1
+        <motion.div
           style={{
-            fontSize: 'clamp(3rem, 8vw, 8rem)',
-            fontWeight: '800',
-            marginBottom: '1.5rem',
-            fontFamily: '"Poppins", sans-serif'
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.5rem'
           }}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <span style={{
-            display: 'block',
-            color: '#ffffff',
-            textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)'
-          }}>
+          <motion.h1
+            style={{
+              fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+              fontWeight: '300',
+              color: '#ffffff',
+              fontFamily: '"Poppins", sans-serif',
+              lineHeight: '1.1',
+              margin: 0
+            }}
+          >
             Hi, I'm
-          </span>
-          <span style={{
-            display: 'block',
-            background: 'linear-gradient(to right, #ffffff, #e5e5e5, #d4d4d4)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            color: 'transparent',
-            animation: 'glow 2s ease-in-out infinite'
-          }}>
+          </motion.h1>
+          <motion.h1
+            style={{
+              fontSize: 'clamp(3.5rem, 8vw, 7rem)',
+              fontWeight: '800',
+              fontFamily: '"Poppins", sans-serif',
+              lineHeight: '1',
+              margin: 0,
+              background: 'linear-gradient(135deg, #ffffff 0%, #e5e5e5 50%, #d4d4d4 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+              textShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'
+            }}
+          >
             Devashish
-          </span>
-        </motion.h1>
+          </motion.h1>
+          <motion.h1
+            style={{
+              fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+              fontWeight: '300',
+              color: '#ffffff',
+              fontFamily: '"Poppins", sans-serif',
+              lineHeight: '1.1',
+              margin: 0
+            }}
+          >
+            Sharma
+          </motion.h1>
+        </motion.div>
         
-        {/* Subtitle with typing effect */}
+        {/* Subtitle */}
         <motion.div
           style={{
-            fontSize: 'clamp(1.25rem, 3vw, 1.875rem)',
-            textAlign: 'center',
-            marginBottom: '2rem',
+            fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)',
             color: '#b3b3b3',
-            fontFamily: '"Inter", sans-serif'
+            fontFamily: '"Inter", sans-serif',
+            fontWeight: '400',
+            lineHeight: '1.6',
+            maxWidth: '600px'
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -159,54 +228,96 @@ export default function Hero() {
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'center',
             alignItems: 'center',
-            gap: '0.5rem'
+            gap: '1rem',
+            marginBottom: '1rem'
           }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Code style={{ width: '20px', height: '20px', color: '#ffffff' }} />
-              AI Agent Developer
-            </span>
-            <span style={{ color: '#d4d4d4' }}>|</span>
-            <span>MERN Stack</span>
-            <span style={{ color: '#d4d4d4' }}>|</span>
-            <span>Fintech Enthusiast</span>
-          </div>
+                          <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Code style={{ width: '18px', height: '18px', color: '#ffffff' }} />
+                AI Agent Developer
+              </span>
+              <span style={{ color: '#666666' }}>•</span>
+              <span>MERN Stack</span>
+              <span style={{ color: '#666666' }}>•</span>
+              <span>Fintech Enthusiast</span>
+            </div>
+            <p style={{ margin: 0, opacity: 0.9 }}>
+              Crafting innovative digital solutions with cutting-edge technology and creative problem-solving approaches.
+            </p>
         </motion.div>
 
         {/* Call to action buttons */}
         <motion.div
           style={{
             display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            justifyContent: 'center',
+            gap: '1.5rem',
             alignItems: 'center',
-            marginBottom: '3rem'
+            marginTop: '1rem'
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <button 
-            className="btn btn-primary"
+          <motion.button 
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.75rem',
+              background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
+              color: '#000000',
+              border: 'none',
+              borderRadius: '12px',
+              padding: '1rem 2rem',
+              fontSize: '1rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              boxShadow: '0 4px 20px rgba(255, 255, 255, 0.2)',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.boxShadow = '0 6px 25px rgba(255, 255, 255, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.boxShadow = '0 4px 20px rgba(255, 255, 255, 0.2)';
+            }}
           >
             View My Work
-            <motion.span
-              whileHover={{ x: 4 }}
-              style={{ transition: 'transform 0.3s' }}
-            >
-              →
-            </motion.span>
-          </button>
-          <button 
-            className="btn btn-secondary"
+            <ArrowRight size={18} />
+          </motion.button>
+          
+          <motion.button 
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.75rem',
+              background: 'transparent',
+              color: '#ffffff',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '12px',
+              padding: '1rem 2rem',
+              fontSize: '1rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.borderColor = 'rgba(255, 255, 255, 0.6)';
+              e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+              e.target.style.background = 'transparent';
+            }}
           >
-            Get In Touch
-          </button>
+            <Download size={18} />
+            Download CV
+          </motion.button>
         </motion.div>
       </div>
       
