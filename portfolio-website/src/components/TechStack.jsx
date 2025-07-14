@@ -4,74 +4,74 @@ import { Code, Database, Brain, Palette, Server, Globe, Zap, TrendingUp, Award, 
 const categories = [
   {
     name: 'Frontend Development',
-    icon: <Globe style={{ width: '24px', height: '24px' }} />,
-    color: 'linear-gradient(135deg, #3B82F6, #1D4ED8)',
-    gradient: 'linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%)',
+    icon: <Globe style={{ width: '24px', height: '24px', color: '#fff' }} />, // white icon
+    color: '#333',
+    gradient: '#333',
     skills: [
-      { name: 'React', level: 95, icon: '⚛️' },
-      { name: 'TypeScript', level: 88, icon: '📘' },
-      { name: 'Next.js', level: 85, icon: '⚡' },
-      { name: 'Tailwind CSS', level: 92, icon: '🎨' },
+      { name: 'React', level: 95 },
+      { name: 'TypeScript', level: 88 },
+      { name: 'Next.js', level: 85 },
+      { name: 'Tailwind CSS', level: 92 },
     ],
   },
   {
     name: 'Backend Development',
-    icon: <Server style={{ width: '24px', height: '24px' }} />,
-    color: 'linear-gradient(135deg, #10B981, #059669)',
-    gradient: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+    icon: <Server style={{ width: '24px', height: '24px', color: '#fff' }} />, // white icon
+    color: '#333',
+    gradient: '#333',
     skills: [
-      { name: 'Node.js', level: 90, icon: '🟢' },
-      { name: 'Express.js', level: 85, icon: '🚀' },
-      { name: 'Python', level: 92, icon: '🐍' },
-      { name: 'FastAPI', level: 88, icon: '⚡' },
+      { name: 'Node.js', level: 90 },
+      { name: 'Express.js', level: 85 },
+      { name: 'Python', level: 92 },
+      { name: 'FastAPI', level: 88 },
     ],
   },
   {
     name: 'Database & Cloud',
-    icon: <Database style={{ width: '24px', height: '24px' }} />,
-    color: 'linear-gradient(135deg, #F59E0B, #D97706)',
-    gradient: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+    icon: <Database style={{ width: '24px', height: '24px', color: '#fff' }} />, // white icon
+    color: '#333',
+    gradient: '#333',
     skills: [
-      { name: 'MongoDB', level: 80, icon: '🍃' },
-      { name: 'PostgreSQL', level: 75, icon: '🐘' },
-      { name: 'AWS', level: 75, icon: '☁️' },
-      { name: 'Firebase', level: 78, icon: '🔥' },
+      { name: 'MongoDB', level: 80 },
+      { name: 'PostgreSQL', level: 75 },
+      { name: 'AWS', level: 75 },
+      { name: 'Firebase', level: 78 },
     ],
   },
   {
     name: 'AI & Machine Learning',
-    icon: <Brain style={{ width: '24px', height: '24px' }} />,
-    color: 'linear-gradient(135deg, #8B5CF6, #7C3AED)',
-    gradient: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
+    icon: <Brain style={{ width: '24px', height: '24px', color: '#fff' }} />, // white icon
+    color: '#333',
+    gradient: '#333',
     skills: [
-      { name: 'OpenAI APIs', level: 88, icon: '🤖' },
-      { name: 'TensorFlow', level: 80, icon: '🧠' },
-      { name: 'LangChain', level: 85, icon: '🔗' },
-      { name: 'Hugging Face', level: 82, icon: '🤗' },
+      { name: 'OpenAI APIs', level: 88 },
+      { name: 'TensorFlow', level: 80 },
+      { name: 'LangChain', level: 85 },
+      { name: 'Hugging Face', level: 82 },
     ],
   },
   {
     name: 'DevOps & Tools',
-    icon: <Code style={{ width: '24px', height: '24px' }} />,
-    color: 'linear-gradient(135deg, #EF4444, #DC2626)',
-    gradient: 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)',
+    icon: <Code style={{ width: '24px', height: '24px', color: '#fff' }} />, // white icon
+    color: '#333',
+    gradient: '#333',
     skills: [
-      { name: 'Git', level: 95, icon: '📝' },
-      { name: 'Docker', level: 78, icon: '🐳' },
-      { name: 'CI/CD', level: 82, icon: '🔄' },
-      { name: 'Vercel', level: 90, icon: '▲' },
+      { name: 'Git', level: 95 },
+      { name: 'Docker', level: 78 },
+      { name: 'CI/CD', level: 82 },
+      { name: 'Vercel', level: 90 },
     ],
   },
   {
     name: 'Design & UX',
-    icon: <Palette style={{ width: '24px', height: '24px' }} />,
-    color: 'linear-gradient(135deg, #EC4899, #DB2777)',
-    gradient: 'linear-gradient(135deg, #EC4899 0%, #DB2777 100%)',
+    icon: <Palette style={{ width: '24px', height: '24px', color: '#fff' }} />, // white icon
+    color: '#333',
+    gradient: '#333',
     skills: [
-      { name: 'Figma', level: 85, icon: '🎨' },
-      { name: 'UI/UX Design', level: 80, icon: '✨' },
-      { name: 'Responsive Design', level: 92, icon: '📱' },
-      { name: 'Accessibility', level: 88, icon: '♿' },
+      { name: 'Figma', level: 85 },
+      { name: 'UI/UX Design', level: 80 },
+      { name: 'Responsive Design', level: 92 },
+      { name: 'Accessibility', level: 88 },
     ],
   },
 ];
@@ -109,7 +109,7 @@ export default function TechStack() {
             right: '5%',
             width: '25rem',
             height: '25rem',
-            background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
             borderRadius: '50%',
             filter: 'blur(100px)'
           }}
@@ -126,7 +126,7 @@ export default function TechStack() {
             left: '10%',
             width: '20rem',
             height: '20rem',
-            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%)',
             borderRadius: '50%',
             filter: 'blur(80px)'
           }}
@@ -304,8 +304,8 @@ export default function TechStack() {
             <motion.div 
               key={category.name} 
               style={{
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.1)',
                 borderRadius: '20px',
                 padding: '2.5rem',
                 position: 'relative',
@@ -320,8 +320,8 @@ export default function TechStack() {
               whileHover={{ 
                 scale: 1.02, 
                 y: -8,
-                background: 'rgba(255, 255, 255, 0.08)',
-                borderColor: 'rgba(255, 255, 255, 0.2)'
+                background: 'rgba(255,255,255,0.08)',
+                borderColor: 'rgba(255,255,255,0.2)'
               }}
             >
               {/* Category header */}
@@ -400,10 +400,10 @@ export default function TechStack() {
                         fontSize: '0.875rem',
                         color: '#ffffff',
                         fontWeight: '700',
-                        background: category.gradient,
+                        background: '#444',
                         padding: '0.5rem 1rem',
                         borderRadius: '12px',
-                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
+                        boxShadow: '0 4px 12px #222'
                       }}>
                         {skill.level}%
                       </span>
@@ -414,7 +414,7 @@ export default function TechStack() {
                       position: 'relative',
                       width: '100%',
                       height: '10px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      backgroundColor: '#444',
                       borderRadius: '9999px',
                       overflow: 'hidden'
                     }}>
@@ -471,8 +471,8 @@ export default function TechStack() {
             textAlign: 'center', 
             marginTop: '4rem',
             padding: '3rem',
-            background: 'rgba(255, 255, 255, 0.03)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            background: '#333',
+            border: '1px solid #444',
             borderRadius: '20px',
             backdropFilter: 'blur(10px)'
           }}
@@ -510,8 +510,8 @@ export default function TechStack() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.75rem',
-              background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
-              color: '#000000',
+              background: '#fff',
+              color: '#333',
               border: 'none',
               borderRadius: '12px',
               padding: '1rem 2rem',
@@ -521,7 +521,7 @@ export default function TechStack() {
               textDecoration: 'none',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: '0 4px 20px rgba(255, 255, 255, 0.2)'
+              boxShadow: '0 4px 20px #222'
             }}
             whileHover={{ 
               scale: 1.05, 

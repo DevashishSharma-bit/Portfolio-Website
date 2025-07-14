@@ -1,21 +1,21 @@
-import { Download, MapPin, Calendar, Award, Code, Brain, Zap, Heart, Star, TrendingUp, Users, Rocket } from 'lucide-react';
+import { Download, MapPin, Calendar, Award, Code, Brain, Zap, Heart, Star, TrendingUp, Users, Rocket, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function About() {
   const stats = [
-    { icon: <Calendar style={{ width: '20px', height: '20px' }} />, label: 'Experience', value: '3+ Years', color: '#3B82F6' },
-    { icon: <MapPin style={{ width: '20px', height: '20px' }} />, label: 'Location', value: 'India', color: '#10B981' },
-    { icon: <Award style={{ width: '20px', height: '20px' }} />, label: 'Projects', value: '50+', color: '#F59E0B' },
-    { icon: <Users style={{ width: '20px', height: '20px' }} />, label: 'Clients', value: '25+', color: '#8B5CF6' },
+    { icon: <Calendar style={{ width: '20px', height: '20px' }} />, label: 'Experience', value: '3+ Years' },
+    { icon: <MapPin style={{ width: '20px', height: '20px' }} />, label: 'Location', value: 'India' },
+    { icon: <Award style={{ width: '20px', height: '20px' }} />, label: 'Projects', value: '50+' },
+    { icon: <Users style={{ width: '20px', height: '20px' }} />, label: 'Clients', value: '25+' },
   ];
 
   const skills = [
-    { name: 'AI & Machine Learning', icon: <Brain size={16} />, level: 90, color: '#3B82F6' },
-    { name: 'MERN Stack', icon: <Code size={16} />, level: 95, color: '#10B981' },
-    { name: 'Fintech Solutions', icon: <TrendingUp size={16} />, level: 85, color: '#F59E0B' },
-    { name: 'Open Source', icon: <Heart size={16} />, level: 80, color: '#EF4444' },
-    { name: 'Music Production', icon: <Zap size={16} />, level: 75, color: '#8B5CF6' },
-    { name: 'Chess Strategy', icon: <Star size={16} />, level: 70, color: '#06B6D4' },
+    { name: 'AI & Machine Learning', icon: <Brain size={16} />, level: 90 },
+    { name: 'MERN Stack', icon: <Code size={16} />, level: 95 },
+    { name: 'Fintech Solutions', icon: <TrendingUp size={16} />, level: 85 },
+    { name: 'Open Source', icon: <Heart size={16} />, level: 80 },
+    { name: 'Music Production', icon: <Zap size={16} />, level: 75 },
+    { name: 'Chess Strategy', icon: <Star size={16} />, level: 70 },
   ];
 
   const timeline = [
@@ -71,7 +71,7 @@ export default function About() {
             right: '10%',
             width: '20rem',
             height: '20rem',
-            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
             borderRadius: '50%',
             filter: 'blur(80px)'
           }}
@@ -88,7 +88,7 @@ export default function About() {
             left: '15%',
             width: '16rem',
             height: '16rem',
-            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%)',
             borderRadius: '50%',
             filter: 'blur(60px)'
           }}
@@ -214,7 +214,7 @@ export default function About() {
                   height: '18rem',
                   borderRadius: '20px',
                   background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
-                  border: '2px solid rgba(255, 255, 255, 0.1)',
+                  border: '2px solid #333',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -223,10 +223,7 @@ export default function About() {
                   position: 'relative',
                   overflow: 'hidden'
                 }}>
-                  <span style={{
-                    fontSize: '8rem',
-                    filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))'
-                  }}>👨‍💻</span>
+                  <User size={120} color="#fff" />
                   
                   {/* Floating elements */}
                   <motion.div
@@ -236,9 +233,9 @@ export default function About() {
                       right: '1rem',
                       width: '1rem',
                       height: '1rem',
-                      background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)',
+                      background: 'linear-gradient(135deg, #e0e0e0, #b3b3b3)',
                       borderRadius: '50%',
-                      boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)'
+                      boxShadow: '0 0 20px rgba(224, 224, 224, 0.3)'
                     }}
                     animate={{ 
                       scale: [1, 1.2, 1],
@@ -253,9 +250,9 @@ export default function About() {
                       left: '1rem',
                       width: '0.75rem',
                       height: '0.75rem',
-                      background: 'linear-gradient(135deg, #10B981, #059669)',
+                      background: 'linear-gradient(135deg, #b3b3b3, #888)',
                       borderRadius: '50%',
-                      boxShadow: '0 0 15px rgba(16, 185, 129, 0.5)'
+                      boxShadow: '0 0 15px rgba(179, 179, 179, 0.3)'
                     }}
                     animate={{ 
                       scale: [1.2, 1, 1.2],
@@ -317,7 +314,7 @@ export default function About() {
                       display: 'flex',
                       justifyContent: 'center',
                       marginBottom: '1rem',
-                      color: stat.color,
+                      color: '#e0e0e0',
                       fontSize: '1.5rem'
                     }}>
                       {stat.icon}
@@ -333,7 +330,7 @@ export default function About() {
                     </div>
                     <div style={{
                       fontSize: '0.875rem',
-                      color: '#a3a3a3',
+                      color: '#e0e0e0',
                       fontWeight: '600',
                       textTransform: 'uppercase',
                       letterSpacing: '0.05em'
@@ -382,9 +379,9 @@ export default function About() {
                 lineHeight: '1.7'
               }}>
                 <p>
-                  Hi! I'm <span style={{ color: '#ffffff', fontWeight: '700' }}>Devashish</span>, a passionate 
-                  <span style={{ color: '#3B82F6', fontWeight: '600' }}> AI Agent Developer</span> and 
-                  <span style={{ color: '#10B981', fontWeight: '600' }}> MERN Stack engineer</span> with a keen 
+                  Hi! I'm <span style={{ color: '#fff', fontWeight: '700' }}>Devashish</span>, a passionate 
+                  <span style={{ color: '#e0e0e0', fontWeight: '600' }}> AI Agent Developer</span> and 
+                  <span style={{ color: '#e0e0e0', fontWeight: '600' }}> MERN Stack engineer</span> with a keen 
                   interest in fintech and emerging technologies.
                 </p>
                 <p>
@@ -437,14 +434,14 @@ export default function About() {
                         gap: '0.75rem'
                       }}>
                         <div style={{
-                          color: skill.color,
+                          color: '#e0e0e0',
                           display: 'flex',
                           alignItems: 'center'
                         }}>
                           {skill.icon}
                         </div>
                         <span style={{
-                          color: '#ffffff',
+                          color: '#fff',
                           fontWeight: '600',
                           fontSize: '1rem',
                           fontFamily: '"Inter", sans-serif'
@@ -453,7 +450,7 @@ export default function About() {
                         </span>
                       </div>
                       <span style={{
-                        color: '#a3a3a3',
+                        color: '#e0e0e0',
                         fontSize: '0.875rem',
                         fontWeight: '600'
                       }}>
@@ -463,14 +460,14 @@ export default function About() {
                     <div style={{
                       width: '100%',
                       height: '8px',
-                      background: 'rgba(255, 255, 255, 0.1)',
+                      background: '#333',
                       borderRadius: '4px',
                       overflow: 'hidden'
                     }}>
                       <motion.div
                         style={{
                           height: '100%',
-                          background: `linear-gradient(90deg, ${skill.color} 0%, ${skill.color}80 100%)`,
+                          background: 'linear-gradient(90deg, #e0e0e0 0%, #b3b3b3 100%)',
                           borderRadius: '4px'
                         }}
                         initial={{ width: 0 }}
@@ -529,7 +526,7 @@ export default function About() {
                 }}
                 whileHover={{ 
                   scale: 1.02, 
-                  y: -4,
+                  y: -8,
                   background: 'rgba(255, 255, 255, 0.08)',
                   borderColor: 'rgba(255, 255, 255, 0.2)'
                 }}
@@ -548,7 +545,7 @@ export default function About() {
                     padding: '0.75rem',
                     borderRadius: '12px',
                     background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
-                    color: '#ffffff',
+                    color: '#e0e0e0',
                     border: '1px solid rgba(255, 255, 255, 0.1)'
                   }}>
                     {item.icon}
@@ -564,7 +561,7 @@ export default function About() {
                     </div>
                     <div style={{
                       fontSize: '0.875rem',
-                      color: '#a3a3a3',
+                      color: '#e0e0e0',
                       fontWeight: '600'
                     }}>
                       {item.year}
@@ -572,9 +569,10 @@ export default function About() {
                   </div>
                 </div>
                 <p style={{
-                  color: '#b3b3b3',
+                  color: '#e0e0e0',
                   fontFamily: '"Inter", sans-serif',
-                  lineHeight: '1.6',
+                  fontSize: '1rem',
+                  lineHeight: '1.7',
                   margin: 0
                 }}>
                   {item.description}
@@ -605,8 +603,8 @@ export default function About() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.75rem',
-              background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
-              color: '#000000',
+              background: 'linear-gradient(135deg, #e0e0e0 0%, #b3b3b3 100%)',
+              color: '#222',
               border: 'none',
               borderRadius: '12px',
               padding: '1rem 2rem',
@@ -615,12 +613,12 @@ export default function About() {
               fontFamily: '"Inter", sans-serif',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: '0 4px 20px rgba(255, 255, 255, 0.2)'
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
             }}
             whileHover={{ 
               scale: 1.05, 
               y: -2,
-              boxShadow: '0 6px 25px rgba(255, 255, 255, 0.3)'
+              boxShadow: '0 6px 25px rgba(0, 0, 0, 0.4)'
             }}
             whileTap={{ scale: 0.95 }}
           >

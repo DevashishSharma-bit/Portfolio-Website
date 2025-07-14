@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Star, GitFork, Eye, Calendar, Users, Zap } from 'lucide-react';
+import { Github, ExternalLink, Star, GitFork, Eye, Calendar, Users, Zap, Code, Brain, Server } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const projects = [
@@ -12,7 +12,7 @@ const projects = [
     forks: 32,
     views: 2500,
     featured: true,
-    image: '🤖',
+    image: <Brain size={36} color="#fff" />, // Lucide icon
     category: 'AI/ML',
     year: '2024'
   },
@@ -26,7 +26,7 @@ const projects = [
     forks: 21,
     views: 1800,
     featured: true,
-    image: '📊',
+    image: <Code size={36} color="#fff" />, // Lucide icon
     category: 'Fintech',
     year: '2024'
   },
@@ -40,7 +40,7 @@ const projects = [
     forks: 12,
     views: 1200,
     featured: true,
-    image: '🛒',
+    image: <Server size={36} color="#fff" />, // Lucide icon
     category: 'Backend',
     year: '2023'
   },
@@ -54,7 +54,7 @@ const projects = [
     forks: 9,
     views: 950,
     featured: true,
-    image: '✅',
+    image: <Code size={36} color="#fff" />, // Lucide icon
     category: 'Full Stack',
     year: '2023'
   },
@@ -95,7 +95,7 @@ export default function Projects() {
             right: '10%',
             width: '20rem',
             height: '20rem',
-            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
             borderRadius: '50%',
             filter: 'blur(80px)'
           }}
@@ -112,7 +112,7 @@ export default function Projects() {
             left: '15%',
             width: '16rem',
             height: '16rem',
-            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%)',
             borderRadius: '50%',
             filter: 'blur(60px)'
           }}
@@ -225,8 +225,8 @@ export default function Projects() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: idx * 0.2 }}
               style={{
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.1)',
                 borderRadius: '20px',
                 padding: '2.5rem',
                 position: 'relative',
@@ -237,8 +237,8 @@ export default function Projects() {
               whileHover={{ 
                 scale: 1.02, 
                 y: -8,
-                background: 'rgba(255, 255, 255, 0.08)',
-                borderColor: 'rgba(255, 255, 255, 0.2)'
+                background: 'rgba(255,255,255,0.08)',
+                borderColor: 'rgba(255,255,255,0.2)'
               }}
             >
               {/* Project header */}
@@ -278,7 +278,7 @@ export default function Projects() {
                     }}>
                       <span style={{
                         padding: '0.25rem 0.75rem',
-                        background: 'rgba(255, 255, 255, 0.1)',
+                        background: '#444',
                         borderRadius: '12px',
                         fontWeight: '600'
                       }}>
@@ -295,11 +295,11 @@ export default function Projects() {
                 {/* Featured badge */}
                 <div style={{
                   padding: '0.5rem 1rem',
-                  background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)',
+                  background: '#fff',
                   borderRadius: '12px',
                   fontSize: '0.75rem',
                   fontWeight: '600',
-                  color: '#ffffff',
+                  color: '#333',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
                 }}>
@@ -309,11 +309,11 @@ export default function Projects() {
 
               {/* Description */}
               <p style={{
-                color: '#b3b3b3',
+                color: '#fff',
                 fontFamily: '"Inter", sans-serif',
-                lineHeight: '1.7',
+                fontWeight: '500',
                 fontSize: '1rem',
-                marginBottom: '2rem'
+                marginBottom: '0.25rem'
               }}>
                 {project.description}
               </p>
@@ -331,22 +331,22 @@ export default function Projects() {
                     style={{
                       padding: '0.5rem 1rem',
                       borderRadius: '12px',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      color: '#e5e5e5',
+                      background: '#444',
+                      border: '1px solid #888',
+                      color: '#fff',
                       fontSize: '0.875rem',
                       fontWeight: '500',
                       transition: 'all 0.3s ease'
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.background = 'rgba(255, 255, 255, 0.1)';
-                      e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                      e.target.style.color = '#ffffff';
+                      e.target.style.background = '#fff';
+                      e.target.style.borderColor = '#333';
+                      e.target.style.color = '#333';
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                      e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                      e.target.style.color = '#e5e5e5';
+                      e.target.style.background = '#444';
+                      e.target.style.borderColor = '#888';
+                      e.target.style.color = '#fff';
                     }}
                   >
                     {tech}
@@ -361,20 +361,20 @@ export default function Projects() {
                 gap: '2rem',
                 marginBottom: '2rem',
                 padding: '1rem',
-                background: 'rgba(255, 255, 255, 0.03)',
+                background: '#444',
                 borderRadius: '12px',
-                border: '1px solid rgba(255, 255, 255, 0.05)'
+                border: '1px solid #888'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#a3a3a3' }}>
-                  <Star size={16} style={{ color: '#F59E0B' }} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fff' }}>
+                  <Star size={16} style={{ color: '#fff' }} />
                   <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>{project.stars}</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#a3a3a3' }}>
-                  <GitFork size={16} style={{ color: '#10B981' }} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fff' }}>
+                  <GitFork size={16} style={{ color: '#fff' }} />
                   <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>{project.forks}</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#a3a3a3' }}>
-                  <Eye size={16} style={{ color: '#3B82F6' }} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fff' }}>
+                  <Eye size={16} style={{ color: '#fff' }} />
                   <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>{project.views}</span>
                 </div>
               </div>
@@ -393,18 +393,18 @@ export default function Projects() {
                     justifyContent: 'center',
                     gap: '0.75rem',
                     padding: '1rem',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    background: '#444',
+                    border: '1px solid #888',
                     borderRadius: '12px',
-                    color: '#ffffff',
+                    color: '#fff',
                     textDecoration: 'none',
                     fontWeight: '600',
                     fontFamily: '"Inter", sans-serif',
                     transition: 'all 0.3s ease'
                   }}
                   whileHover={{ 
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    background: '#888',
+                    borderColor: '#333',
                     y: -2
                   }}
                   whileTap={{ scale: 0.98 }}
@@ -423,20 +423,20 @@ export default function Projects() {
                     justifyContent: 'center',
                     gap: '0.75rem',
                     padding: '1rem',
-                    background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
+                    background: '#fff',
                     border: 'none',
                     borderRadius: '12px',
-                    color: '#000000',
+                    color: '#333',
                     textDecoration: 'none',
                     fontWeight: '600',
                     fontFamily: '"Inter", sans-serif',
                     transition: 'all 0.3s ease',
-                    boxShadow: '0 4px 20px rgba(255, 255, 255, 0.2)'
+                    boxShadow: '0 4px 20px #222'
                   }}
                   whileHover={{ 
                     scale: 1.02,
                     y: -2,
-                    boxShadow: '0 6px 25px rgba(255, 255, 255, 0.3)'
+                    boxShadow: '0 6px 25px #444'
                   }}
                   whileTap={{ scale: 0.98 }}
                   target="_blank" 
@@ -456,8 +456,8 @@ export default function Projects() {
             textAlign: 'center', 
             marginTop: '4rem',
             padding: '2rem',
-            background: 'rgba(255, 255, 255, 0.03)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            background: '#333',
+            border: '1px solid #444',
             borderRadius: '20px',
             backdropFilter: 'blur(10px)'
           }}
@@ -482,8 +482,8 @@ export default function Projects() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.75rem',
-              background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
-              color: '#000000',
+              background: '#fff',
+              color: '#333',
               border: 'none',
               borderRadius: '12px',
               padding: '1rem 2rem',
@@ -493,12 +493,12 @@ export default function Projects() {
               textDecoration: 'none',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: '0 4px 20px rgba(255, 255, 255, 0.2)'
+              boxShadow: '0 4px 20px #222'
             }}
             whileHover={{ 
               scale: 1.05, 
               y: -2,
-              boxShadow: '0 6px 25px rgba(255, 255, 255, 0.3)'
+              boxShadow: '0 6px 25px #444'
             }}
             whileTap={{ scale: 0.95 }}
             target="_blank" 

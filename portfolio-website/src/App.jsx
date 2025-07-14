@@ -1,37 +1,44 @@
-import React from 'react';
-import Spline from '@splinetool/react-spline';
+import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
 import TechStack from './components/TechStack';
 import Contact from './components/Contact';
+import Loader from './components/Loader';
 
 export default function App() {
-  return (
-    <div style={{ position: 'relative' }}>
-      {/* Spline Background */}
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100vh',
-        zIndex: -1,
-      }}>
-        <Spline
-          scene="https://prod.spline.design/s8AtnL84gfe9HKuz/scene.splinecode"
-          style={{ width: '100%', height: '100%' }}
-        />
-      </div>
+  const [loading, setLoading] = useState(true);
 
-      {/* Main Content */}
-      <main style={{ position: 'relative', zIndex: 1 }}>
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%)'
+      }}>
+        <Loader />
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Navbar />
+      <main>
         <Hero />
         <About />
         <Projects />
         <TechStack />
         <Contact />
       </main>
-    </div>
+    </>
   );
 }
