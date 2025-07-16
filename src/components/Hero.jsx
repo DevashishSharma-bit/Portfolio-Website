@@ -276,10 +276,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1.5 }}
           >
             {[
-              { icon: <Github size={24} />, href: '#', label: 'GitHub' },
-              { icon: <Linkedin size={24} />, href: '#', label: 'LinkedIn' },
-              { icon: <Twitter size={24} />, href: '#', label: 'Twitter' },
-              { icon: <Mail size={24} />, href: '#contact', label: 'Email' }
+              { icon: <Github size={24} />, href: 'https://github.com/DevashishSharma-bit', label: 'GitHub' },
+              { icon: <Linkedin size={24} />, href: 'https://www.linkedin.com/in/devashish-sharma-bit/', label: 'LinkedIn' },
+              { icon: <Twitter size={24} />, href: 'https://x.com/SDEVASHISH01', label: 'Twitter' },
+              { icon: <Mail size={24} />, href: 'https://mail.google.com/mail/?view=cm&fs=1&to=devashishsharma860@gmail.com', label: 'Email' }
             ].map((social, index) => (
               <motion.a
                 key={social.label}
